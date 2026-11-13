@@ -1,6 +1,6 @@
 <configuration>
     <!-- ============================================================== -->
-    <!-- BẢN ĐỒ THỰC TẾ (OSM) - KỊCH BẢN 2: MỨC TRUNG BÌNH (LƯU LƯỢNG VỪA PHẢI, THÔNG SUỐT) -->
+    <!-- BẢN ĐỒ THỰC TẾ (OSM) - KỊCH BẢN 2: MỨC TRUNG BÌNH (NHIỀU XE, LƯU THÔNG MƯỢT MÀ) -->
     <!-- ============================================================== -->
     <input>
         <net-file value="hangxanh_real.net.xml"/>
@@ -8,8 +8,8 @@
         <additional-files value="hangxanh.vtypes.xml,hangxanh_buildings.poly.xml"/>
     </input>
 
-    <!-- Hệ số điều chỉnh: 0.35 (35% lưu lượng gốc để dòng xe chạy trật tự, không bị dồn ứ vô lý) -->
-    <scale value="0.35"/>
+    <!-- Hệ số 0.5: Tăng mật độ xe nhiều hơn, tấp nập hơn nhưng không bị kẹt cứng -->
+    <scale value="0.5"/>
 
     <time>
         <begin value="0"/>
@@ -18,9 +18,14 @@
     </time>
 
     <processing>
+        <!-- Mô hình lách làn xe máy linh hoạt -->
         <lateral-resolution value="0.8"/>
-        <!-- Giải tỏa ngay sau 15 giây nếu có xe bị khựng ở làn rẽ cụt OSM -->
-        <time-to-teleport value="15"/>
+        <!-- Cho phép xe chuyển làn tức thì, không bị khựng lại chờ đợi -->
+        <lanechange.duration value="0"/>
+        <!-- Cho phép xe máy vượt phải tự nhiên chuẩn giao thông Việt Nam -->
+        <lanechange.overtake-right value="true"/>
+        <!-- Giải tỏa ngay sau 10 giây nếu gặp điểm thắt cổ chai của bản đồ OSM -->
+        <time-to-teleport value="10"/>
     </processing>
 
     <output>

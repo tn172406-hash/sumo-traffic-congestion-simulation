@@ -1,6 +1,6 @@
 <configuration>
     <!-- ============================================================== -->
-    <!-- BẢN ĐỒ THỰC TẾ (OSM) - KỊCH BẢN 3: MỨC CAO (GIỜ CAO ĐIỂM - ÁP LỰC ÙN TẮC) -->
+    <!-- BẢN ĐỒ THỰC TẾ (OSM) - KỊCH BẢN 3: MỨC CAO (CAO ĐIỂM - ÁP LỰC ÙN TẮC) -->
     <!-- ============================================================== -->
     <input>
         <net-file value="hangxanh_real.net.xml"/>
@@ -8,8 +8,7 @@
         <additional-files value="hangxanh.vtypes.xml,hangxanh_buildings.poly.xml"/>
     </input>
 
-    <!-- Hệ số điều chỉnh: 0.8 (80% lưu lượng gốc để dòng xe ùn ứ giờ cao điểm) -->
-    <scale value="0.8"/>
+    <scale value="1.0"/>
 
     <time>
         <begin value="0"/>
@@ -19,7 +18,9 @@
 
     <processing>
         <lateral-resolution value="0.8"/>
-        <time-to-teleport value="40"/>
+        <lanechange.duration value="0"/>
+        <lanechange.overtake-right value="true"/>
+        <time-to-teleport value="25"/>
     </processing>
 
     <output>

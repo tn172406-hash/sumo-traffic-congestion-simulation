@@ -1,6 +1,6 @@
 <configuration>
     <!-- ============================================================== -->
-    <!-- BẢN ĐỒ THỰC TẾ (OSM) - KỊCH BẢN 1: MỨC THẤP (GIỜ THẤP ĐIỂM - ĐƯỜNG THÔNG THOÁNG) -->
+    <!-- BẢN ĐỒ THỰC TẾ (OSM) - KỊCH BẢN 1: MỨC THẤP (GIỜ THẤP ĐIỂM - ĐƯỜNG RẤT VẮNG) -->
     <!-- ============================================================== -->
     <input>
         <net-file value="hangxanh_real.net.xml"/>
@@ -8,8 +8,8 @@
         <additional-files value="hangxanh.vtypes.xml,hangxanh_buildings.poly.xml"/>
     </input>
 
-    <!-- Hệ số điều chỉnh: 0.2 (20% lưu lượng gốc để phản ánh đúng giờ thấp điểm vắng xe) -->
-    <scale value="0.2"/>
+    <!-- Hệ số điều chỉnh: 0.15 (15% lưu lượng gốc để đường cực kỳ thông thoáng) -->
+    <scale value="0.15"/>
 
     <time>
         <begin value="0"/>
@@ -19,8 +19,7 @@
 
     <processing>
         <lateral-resolution value="0.8"/>
-        <!-- Giải tỏa xe bị khựng do lỗi làn OSM sau 30s để tránh ùn ứ giả tạo -->
-        <time-to-teleport value="30"/>
+        <time-to-teleport value="15"/>
     </processing>
 
     <output>

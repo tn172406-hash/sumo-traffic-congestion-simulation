@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 Script tong hop so lieu mo phong va xuat bieu do cho Tieu luan ITS Hang Xanh
-Ho tro 3 kich ban: Thap (KB1), Trung binh (KB2), Cao diem (KB3)
+Ap dung cho BAN DO THAT (OpenStreetMap) voi 3 kich ban: Thap (KB1), Trung binh (KB2), Cao diem (KB3)
 """
 import os
 import csv
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Thiet lap phong chu va giao dien cho matplotlib
 plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'Segoe UI']
@@ -15,27 +16,27 @@ plt.rcParams['axes.unicode_minus'] = False
 SCENARIOS = [
     {
         'id': 'kb1',
-        'name': 'Kịch bản 1 (Thấp điểm)',
+        'name': 'Kịch bản 1 (Thấp điểm - 50%)',
         'scale': 0.5,
-        'tripinfo': r'output/kb1_tripinfo.xml',
-        'summary': r'output/kb1_summary.xml',
-        'queue': r'output/kb1_queue.xml'
+        'tripinfo': r'output_real/real_kb1_tripinfo.xml',
+        'summary': r'output_real/real_kb1_summary.xml',
+        'queue': r'output_real/real_kb1_queue.xml'
     },
     {
         'id': 'kb2',
-        'name': 'Kịch bản 2 (Trung bình)',
+        'name': 'Kịch bản 2 (Trung bình - 100%)',
         'scale': 1.0,
-        'tripinfo': r'output/kb2_tripinfo.xml',
-        'summary': r'output/kb2_summary.xml',
-        'queue': r'output/kb2_queue.xml'
+        'tripinfo': r'output_real/real_kb2_tripinfo.xml',
+        'summary': r'output_real/real_kb2_summary.xml',
+        'queue': r'output_real/real_kb2_queue.xml'
     },
     {
         'id': 'kb3',
-        'name': 'Kịch bản 3 (Cao điểm)',
+        'name': 'Kịch bản 3 (Cao điểm - 175%)',
         'scale': 1.75,
-        'tripinfo': r'output/kb3_tripinfo.xml',
-        'summary': r'output/kb3_summary.xml',
-        'queue': r'output/kb3_queue.xml'
+        'tripinfo': r'output_real/real_kb3_tripinfo.xml',
+        'summary': r'output_real/real_kb3_summary.xml',
+        'queue': r'output_real/real_kb3_queue.xml'
     }
 ]
 
@@ -120,35 +121,10 @@ def analyze_summary(file_path):
         'collisions': int(last_step.get('collisions', 0))
     }
 
-def analyze_queue(file_path):
-    if not os.path.exists(file_path):
-        return {}
-    tree = ET.parse(file_path)
-    root = tree.getroot()
-    
-    edge_queues = {}
-    for step in root.findall('data'):
-        lanes = step.findall('.//lane')
-        for l in lanes:
-            lane_id = l.get('id')
-            q_len = float(l.get('queueing_length', 0))
-            edge_id = lane_id.rsplit('_', 1)[0]
-            if edge_id not in edge_queues:
-                edge_queues[edge_id] = []
-            edge_queues[edge_id].append(q_len)
-            
-    summary_q = {}
-    for e, vals in edge_queues.items():
-        summary_q[e] = {
-            'max_queue_m': round(max(vals), 1) if vals else 0,
-            'avg_queue_m': round(sum(vals)/len(vals), 1) if vals else 0
-        }
-    return summary_q
-
 def export_summary_csv(results, csv_path='Bao_Cao_Tong_Hop_3_Kich_Ban.csv'):
     with open(csv_path, 'w', newline='', encoding='utf-8-sig') as f:
         writer = csv.writer(f)
-        writer.writerow(['CHỈ SỐ ĐÁNH GIÁ GIAO THÔNG NÚT GIAO HÀNG XANH (SUMO)', 'KỊCH BẢN 1 (THẤP ĐIỂM)', 'KỊCH BẢN 2 (TRUNG BÌNH)', 'KỊCH BẢN 3 (CAO ĐIỂM)'])
+        writer.writerow(['CHỈ SỐ ĐÁNH GIÁ GIAO THÔNG BẢN ĐỒ THẬT HÀNG XANH (SUMO)', 'KỊCH BẢN 1 (THẤP ĐIỂM)', 'KỊCH BẢN 2 (TRUNG BÌNH)', 'KỊCH BẢN 3 (CAO ĐIỂM)'])
         
         writer.writerow(['Tỷ lệ lưu lượng (%)', '50%', '100%', '175%'])
         
@@ -206,7 +182,6 @@ def plot_charts(results):
     wait_car = [results[k]['trip']['by_vtype'].get('passenger', {}).get('mean_waiting', 0) for k in ['kb1', 'kb2', 'kb3']]
     wait_bus = [results[k]['trip']['by_vtype'].get('bus', {}).get('mean_waiting', 0) for k in ['kb1', 'kb2', 'kb3']]
     
-    import numpy as np
     x = np.arange(len(categories))
     width = 0.25
     
@@ -216,7 +191,7 @@ def plot_charts(results):
     
     plt.xlabel('Kịch bản mô phỏng', fontsize=12, fontweight='bold')
     plt.ylabel('Thời gian chờ trung bình (giây)', fontsize=12, fontweight='bold')
-    plt.title('SO SÁNH THỜI GIAN CHỜ TRUNG BÌNH THEO LOẠI XE QUA 3 KỊCH BẢN', fontsize=13, fontweight='bold', pad=15)
+    plt.title('SO SÁNH THỜI GIAN CHỜ TRUNG BÌNH THEO LOẠI XE (BẢN ĐỒ THẬT HÀNG XANH)', fontsize=12, fontweight='bold', pad=15)
     plt.xticks(x, categories)
     plt.legend(frameon=True)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -238,7 +213,6 @@ def plot_charts(results):
     ax1.set_xticks(x)
     ax1.set_xticklabels(categories)
     
-    # hien thi gia tri tren cot
     for bar in bars:
         h = bar.get_height()
         ax1.annotate(f'{h} km/h', xy=(bar.get_x() + bar.get_width()/2, h), xytext=(0, 3),
@@ -254,7 +228,7 @@ def plot_charts(results):
         ax2.annotate(f'{txt} xe', xy=(x[i] + 0.15, txt), xytext=(0, 7),
                      textcoords="offset points", ha='center', color=color, fontweight='bold')
 
-    plt.title('TƯƠNG QUAN GIẢM VẬN TỐC VÀ GIA TĂNG ÙN Ứ GIAO THÔNG TẠI NÚT GIAO', fontsize=13, fontweight='bold', pad=15)
+    plt.title('TƯƠNG QUAN GIẢM VẬN TỐC VÀ GIA TĂNG ÙN TẮC TRÊN BẢN ĐỒ THẬT HÀNG XANH', fontsize=12, fontweight='bold', pad=15)
     plt.grid(axis='both', linestyle='--', alpha=0.4)
     plt.tight_layout()
     plt.savefig('bieu_do_2_van_toc_va_un_tac.png', dpi=300)
@@ -268,7 +242,6 @@ def main():
         print(f"Dang doc ket qua {sc['name']}...")
         t_data = analyze_tripinfo(sc['tripinfo'])
         s_data = analyze_summary(sc['summary'])
-        q_data = analyze_queue(sc['queue'])
         
         if not t_data or not s_data:
             print(f"Chua co du du lieu cho {sc['id']}. Vui long chay mo phong truoc!")
@@ -276,13 +249,12 @@ def main():
             
         results[sc['id']] = {
             'trip': t_data,
-            'summary': s_data,
-            'queue': q_data
+            'summary': s_data
         }
         
     export_summary_csv(results)
     plot_charts(results)
-    print("\n=== HOAN TAT XU LY SO LIEU VA VE BIEU DO CHO TIEU LUAN ===")
+    print("\n=== HOAN TAT XU LY SO LIEU VA VE BIEU DO BAN DO THAT ===")
 
 if __name__ == '__main__':
     main()

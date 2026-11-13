@@ -1,0 +1,33 @@
+<configuration>
+    <!-- KỊCH BẢN 1: MỨC LƯU LƯỢNG THẤP (GIỜ THẤP ĐIỂM - 50% LƯU LƯỢNG) -->
+    <input>
+        <net-file value="hangxanh.net.xml"/>
+        <route-files value="route_nhanh1_dbp_in.rou.xml,route_nhanh2_dbp_out.rou.xml,route_nhanh3_xvnt_bx.rou.xml,route_nhanh4_xvnt_tn.rou.xml"/>
+        <additional-files value="hangxanh.vtypes.xml,hangxanh.scenery.xml"/>
+    </input>
+
+    <!-- Hệ số điều chỉnh lưu lượng: 0.5 (giảm 50%) -->
+    <scale value="0.5"/>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <processing>
+        <lateral-resolution value="0.8"/>
+        <time-to-teleport value="300"/>
+    </processing>
+
+    <output>
+        <tripinfo-output value="output/kb1_tripinfo.xml"/>
+        <summary-output value="output/kb1_summary.xml"/>
+        <queue-output value="output/kb1_queue.xml"/>
+    </output>
+
+    <gui_only>
+        <gui-settings-file value="hangxanh.view.xml"/>
+        <start value="true"/>
+    </gui_only>
+</configuration>

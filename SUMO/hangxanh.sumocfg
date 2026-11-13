@@ -1,0 +1,39 @@
+<configuration>
+    <!-- 1. Đầu vào mô hình -->
+    <input>
+        <!-- Mạng đường nút giao Hàng Xanh -->
+        <net-file value="hangxanh.net.xml"/>
+        
+        <!-- Các file lộ trình và lưu lượng của 4 thành viên -->
+        <route-files value="route_nhanh1_dbp_in.rou.xml,route_nhanh2_dbp_out.rou.xml,route_nhanh3_xvnt_bx.rou.xml,route_nhanh4_xvnt_tn.rou.xml"/>
+        
+        <!-- Phương tiện trực quan + Cảnh quan nhà cửa, cây xanh -->
+        <additional-files value="hangxanh.vtypes.xml,hangxanh.scenery.xml"/>
+    </input>
+
+    <!-- 2. Thời gian mô phỏng (1 giờ = 3600 giây) -->
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <!-- 3. Mô hình xử lý lách làn cho xe máy giao thông Việt Nam -->
+    <processing>
+        <lateral-resolution value="0.8"/>
+        <time-to-teleport value="300"/>
+    </processing>
+
+    <!-- 4. Xuất kết quả đánh giá ùn tắc -->
+    <output>
+        <tripinfo-output value="output_tripinfo.xml"/>
+        <summary-output value="output_summary.xml"/>
+        <queue-output value="output_queue.xml"/>
+    </output>
+
+    <!-- 5. Tự động áp dụng cài đặt góc nhìn đẹp, hình xe chân thực -->
+    <gui_only>
+        <gui-settings-file value="hangxanh.view.xml"/>
+        <start value="true"/>
+    </gui_only>
+</configuration>

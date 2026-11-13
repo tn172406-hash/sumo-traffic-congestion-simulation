@@ -1,0 +1,29 @@
+<additional>
+    <!-- ========================================== -->
+    <!-- ĐỊNH NGHĨA HÌNH DÁNG XE TRỰC QUAN (GUI SHAPES) -->
+    <!-- ========================================== -->
+    
+    <!-- 1. Xe máy: shape="motorcycle", màu vàng cam nổi bật -->
+    <vType id="motorcycle" vClass="motorcycle" guiShape="motorcycle"
+           length="1.9" width="0.8" 
+           maxSpeed="13.89" accel="2.6" decel="4.5" sigma="0.5" 
+           minGap="0.5" color="255,180,0"/>
+
+    <!-- 2. Ô tô con: shape="passenger", màu xanh dương -->
+    <vType id="passenger" vClass="passenger" guiShape="passenger"
+           length="4.5" width="1.8" 
+           maxSpeed="16.67" accel="2.0" decel="4.5" sigma="0.5" 
+           minGap="1.5" color="30,144,255"/>
+
+    <!-- 3. Xe buýt công cộng: shape="bus", màu đỏ -->
+    <vType id="bus" vClass="bus" guiShape="bus"
+           length="10.5" width="2.5" 
+           maxSpeed="11.11" accel="1.2" decel="3.5" sigma="0.5" 
+           minGap="2.0" color="220,20,60"/>
+
+    <!-- 4. Xe tải giao hàng: shape="truck", màu tím -->
+    <vType id="truck" vClass="truck" guiShape="truck"
+           length="7.5" width="2.2" 
+           maxSpeed="13.89" accel="1.5" decel="3.5" sigma="0.5" 
+           minGap="2.0" color="148,0,211"/>
+</additional>

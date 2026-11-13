@@ -1,0 +1,29 @@
+<routes>
+    <!-- ========================================================================= -->
+    <!-- THÀNH VIÊN 3: NHÁNH XÔ VIẾT NGHỆ TĨNH (HƯỚNG TỪ BẾN XE XUỐNG NÚT GIAO)     -->
+    <!-- ========================================================================= -->
+
+    <!-- Lộ trình 3.1: Đi thẳng từ Bến xe sang Thị Nghè -->
+    <route id="R_BX_Straight_to_TN" edges="E_XVNT_BX_in E_XVNT_TN_out"/>
+
+    <!-- Lộ trình 3.2: Rẽ phải từ Bến xe vào Điện Biên Phủ (hướng Cầu Sài Gòn) -->
+    <route id="R_BX_Turn_Right_CSG" edges="E_XVNT_BX_in E_DBP_GND_CSG_out E_DBP_CSG_out"/>
+
+    <!-- Lộ trình 3.3: Rẽ trái từ Bến xe vào Điện Biên Phủ (hướng Quận 1) -->
+    <route id="R_BX_Turn_Left_Q1"   edges="E_XVNT_BX_in E_DBP_GND_Q1_out E_DBP_Q1_out"/>
+
+
+    <!-- ====================== KHAI BÁO DÒNG XE (FLOWS) ====================== -->
+    <!-- Đi thẳng sang Thị Nghè -->
+    <flow id="F_TV3_Straight_Moto" type="motorcycle" route="R_BX_Straight_to_TN" begin="0" end="3600" number="1400" departLane="best"/>
+    <flow id="F_TV3_Straight_Car"  type="passenger"  route="R_BX_Straight_to_TN" begin="0" end="3600" number="300"  departLane="best"/>
+    <flow id="F_TV3_Straight_Bus"  type="bus"        route="R_BX_Straight_to_TN" begin="0" end="3600" number="50"   departLane="best"/>
+
+    <!-- Rẽ phải ra Cầu Sài Gòn -->
+    <flow id="F_TV3_Right_Moto"    type="motorcycle" route="R_BX_Turn_Right_CSG" begin="0" end="3600" number="800"  departLane="best"/>
+    <flow id="F_TV3_Right_Car"     type="passenger"  route="R_BX_Turn_Right_CSG" begin="0" end="3600" number="250"  departLane="best"/>
+
+    <!-- Rẽ trái vào Quận 1 -->
+    <flow id="F_TV3_Left_Moto"     type="motorcycle" route="R_BX_Turn_Left_Q1"   begin="0" end="3600" number="600"  departLane="best"/>
+    <flow id="F_TV3_Left_Car"      type="passenger"  route="R_BX_Turn_Left_Q1"   begin="0" end="3600" number="150"  departLane="best"/>
+</routes>

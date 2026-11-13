@@ -1,0 +1,67 @@
+# TÀI LIỆU HƯỚNG DẪN VÀ BÀN GIAO TIỂU LUẬN ITS NÚT GIAO HÀNG XANH (SUMO)
+========================================================================
+
+Đề tài: Mô phỏng và đánh giá hoạt động của lưu lượng phương tiện đến tình trạng ùn tắc tại nút giao Hàng Xanh, TP.HCM bằng phần mềm SUMO
+
+------------------------------------------------------------------------
+I. PHÂN CÔNG NHIỆM VỤ CỤ THỂ CHO 4 THÀNH VIÊN
+------------------------------------------------------------------------
+
+Mỗi thành viên chịu trách nhiệm 1 NHÁNH ĐƯỜNG trên mô hình SUMO và 1 CHƯƠNG trong bài tiểu luận Word:
+
+1. THÀNH VIÊN 1:
+   - Nhiệm vụ SUMO: Quản lý file `route_nhanh1_dbp_in.rou.xml`
+     * Tuyến: Điện Biên Phủ (Hướng từ Cầu Sài Gòn vào Quận 1).
+     * Kiểm tra phân luồng xe đi trên Cầu vượt thép (thẳng vào Q1) vs Đi dưới mặt đất vào ngã tư đèn đỏ (thẳng, rẽ phải ra Bến xe Miền Đông, rẽ trái về Thị Nghè).
+   - Nhiệm vụ Báo cáo:
+     * Viết PHẦN MỞ ĐẦU (Lý do chọn đề tài, mục tiêu, đối tượng, phạm vi nghiên cứu).
+     * Viết CHƯƠNG 1: Tổng quan về ùn tắc giao thông và mô phỏng SUMO (Khái niệm ùn tắc, dòng xe hỗn hợp Việt Nam, nguyên nhân xung đột, các chỉ số đánh giá, giới thiệu công cụ SUMO).
+     * Viết KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN (ở cuối bài).
+
+2. THÀNH VIÊN 2:
+   - Nhiệm vụ SUMO: Quản lý file `route_nhanh2_dbp_out.rou.xml`
+     * Tuyến: Điện Biên Phủ (Hướng từ Quận 1 đi ra Cầu Sài Gòn / TP. Thủ Đức).
+     * Kiểm tra phân luồng xe đi trên Cầu vượt thép vs Đi dưới mặt đất (rẽ phải về Thị Nghè, rẽ trái sang Bến xe Miền Đông).
+   - Nhiệm vụ Báo cáo:
+     * Viết CHƯƠNG 2: Khảo sát hiện trạng và thu thập dữ liệu nút giao Hàng Xanh (Vị trí địa lý, đặc điểm hình học mặt cắt ngang, phân làn, cấu trúc cầu vượt, chu kỳ đèn tín hiệu hiện hữu 90s, phân tích hiện trạng điểm nóng xung đột, số liệu lưu lượng phân bổ xe máy - ô tô - xe buýt).
+
+3. THÀNH VIÊN 3:
+   - Nhiệm vụ SUMO: Quản lý file `route_nhanh3_xvnt_bx.rou.xml`
+     * Tuyến: Xô Viết Nghệ Tĩnh (Hướng từ Bến xe Miền Đông cũ xuống ngã tư Hàng Xanh).
+     * Theo dõi các xung đột dòng rẽ trái vào Điện Biên Phủ về Quận 1 và dòng xe buýt/xe khách lớn.
+   - Nhiệm vụ Báo cáo:
+     * Viết CHƯƠNG 3: Xây dựng mô hình và thiết lập kịch bản mô phỏng trên SUMO (Quy trình dựng mạng lưới bằng NETCONVERT/NETEDIT, thiết lập tham số xe vType cho xe máy lách làn, chu kỳ đèn 4 pha, thiết lập 3 kịch bản: Thấp điểm 50%, Trung bình 100%, Cao điểm 175%, cấu hình trích xuất dữ liệu tripinfo, queue-output).
+
+4. THÀNH VIÊN 4:
+   - Nhiệm vụ SUMO: Quản lý file `route_nhanh4_xvnt_tn.rou.xml`
+     * Tuyến: Xô Viết Nghệ Tĩnh (Hướng từ Thị Nghè lên ngã tư Hàng Xanh).
+     * Kiểm tra dòng xe đi thẳng sang Bến xe Miền Đông, rẽ phải về Q1 và rẽ trái ra Cầu Sài Gòn.
+   - Nhiệm vụ Báo cáo:
+     * Viết CHƯƠNG 4: Phân tích và đánh giá kết quả mô phỏng.
+     * Sử dụng file bảng tổng hợp số liệu `Bao_Cao_Tong_Hop_3_Kich_Ban.csv` và 2 biểu đồ (`bieu_do_1_thoi_gian_cho.png`, `bieu_do_2_van_toc_va_un_tac.png`) do Nhóm trưởng tạo sẵn để so sánh:
+       + Thời gian chờ trung bình (Waiting Time) qua 3 kịch bản.
+       + Vận tốc trung bình (Mean Speed) và sự suy giảm chất lượng dịch vụ.
+       + Xác định điểm tới hạn gây ùn tắc kéo dài tại nút giao Hàng Xanh.
+
+------------------------------------------------------------------------
+II. PHẦN CÔNG VIỆC NHÓM TRƯỞNG ĐÃ LÀM VÀ THIẾT LẬP SẴN
+------------------------------------------------------------------------
+
+Nhóm trưởng đã hoàn thành toàn bộ nền tảng hệ thống mô phỏng:
+1. Tạo 3 Kịch bản độc lập chuẩn hóa:
+   - `hangxanh_kb1_thap.sumocfg`: Kịch bản 1 (Lưu lượng 50% - Giờ thấp điểm).
+   - `hangxanh_kb2_trungbinh.sumocfg`: Kịch bản 2 (Lưu lượng 100% - Cơ sở thiết kế).
+   - `hangxanh_kb3_caodiem.sumocfg`: Kịch bản 3 (Lưu lượng 175% - Giờ cao điểm ùn tắc).
+   -> Tất cả kết quả xuất riêng vào thư mục `output/` không lo bị ghi đè dữ liệu!
+
+2. Tạo các tệp chạy tự động (.bat):
+   - `CHAY_TAT_CA_KICH_BAN.bat`: Nhấp đúp chuột là tự động chạy mô phỏng 3 kịch bản và xuất ra ngay file Excel + Biểu đồ hoàn chỉnh!
+   - `XEM_KICHBAN_1_THAP.bat`: Mở giao diện SUMO-GUI kịch bản Thấp điểm để quan sát/chụp ảnh.
+   - `XEM_KICHBAN_2_TRUNGBINH.bat`: Mở giao diện SUMO-GUI kịch bản Trung bình.
+   - `XEM_KICHBAN_3_CAODIEM.bat`: Mở giao diện SUMO-GUI kịch bản Cao điểm (để quay video xe ùn ứ kéo dài).
+
+3. Script phân tích và vẽ biểu đồ tự động:
+   - File `tong_hop_va_ve_bieu_do.py` đọc toàn bộ file output XML của 3 kịch bản, tính toán các chỉ số giao thông và tự động xuất ra:
+     * `Bao_Cao_Tong_Hop_3_Kich_Ban.csv` (dữ liệu số liệu sạch cho Chương 4).
+     * `bieu_do_1_thoi_gian_cho.png` (Biểu đồ cột so sánh thời gian chờ xe máy, ô tô, buýt).
+     * `bieu_do_2_van_toc_va_un_tac.png` (Biểu đồ tương quan giữa giảm vận tốc và mức độ ùn ứ).

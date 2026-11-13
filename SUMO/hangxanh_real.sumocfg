@@ -1,0 +1,31 @@
+<configuration>
+    <!-- 1. Dữ liệu bản đồ OpenStreetMap thực tế 100% của khu vực Hàng Xanh, Bình Thạnh -->
+    <input>
+        <net-file value="hangxanh_real.net.xml"/>
+        <route-files value="hangxanh_real.rou.xml"/>
+        <!-- File chứa toàn bộ nhà cửa, trường ĐH HUTECH, các tòa nhà, công viên cây xanh trích xuất từ OSM -->
+        <additional-files value="hangxanh.vtypes.xml,hangxanh_buildings.poly.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <processing>
+        <lateral-resolution value="0.8"/>
+        <time-to-teleport value="300"/>
+    </processing>
+
+    <output>
+        <tripinfo-output value="output_tripinfo.xml"/>
+        <summary-output value="output_summary.xml"/>
+        <queue-output value="output_queue.xml"/>
+    </output>
+
+    <gui_only>
+        <gui-settings-file value="hangxanh.view.xml"/>
+        <start value="true"/>
+    </gui_only>
+</configuration>

@@ -1,0 +1,35 @@
+<routes>
+    <!-- ========================================================================= -->
+    <!-- THÀNH VIÊN 2: NHÁNH ĐIỆN BIÊN PHỦ (HƯỚNG TỪ TRUNG TÂM Q1 RA CẦU SÀI GÒN)   -->
+    <!-- ========================================================================= -->
+
+    <!-- Lộ trình 2.1: Đi trên Cầu Vượt thép ra thẳng Cầu Sài Gòn (Không vướng đèn) -->
+    <route id="R_Q1_Bridge_to_CSG" edges="E_DBP_Q1_in E_BRIDGE_Q1_to_CSG E_DBP_CSG_out"/>
+
+    <!-- Lộ trình 2.2: Đi dưới gầm cầu qua ngã tư đèn đỏ ra Cầu Sài Gòn -->
+    <route id="R_Q1_Ground_to_CSG" edges="E_DBP_Q1_in E_DBP_GND_Q1_in E_DBP_GND_CSG_out E_DBP_CSG_out"/>
+
+    <!-- Lộ trình 2.3: Đi từ Q1 rẽ phải vào Xô Viết Nghệ Tĩnh (về Thị Nghè) -->
+    <route id="R_Q1_Turn_Right_TN" edges="E_DBP_Q1_in E_DBP_GND_Q1_in E_XVNT_TN_out"/>
+
+    <!-- Lộ trình 2.4: Đi từ Q1 rẽ trái vào Xô Viết Nghệ Tĩnh (về Bến xe Miền Đông) -->
+    <route id="R_Q1_Turn_Left_BX"  edges="E_DBP_Q1_in E_DBP_GND_Q1_in E_XVNT_BX_out"/>
+
+
+    <!-- ====================== KHAI BÁO DÒNG XE (FLOWS) ====================== -->
+    <!-- Dòng xe qua cầu vượt thẳng ra Cầu Sài Gòn -->
+    <flow id="F_TV2_Bridge_Moto" type="motorcycle" route="R_Q1_Bridge_to_CSG" begin="0" end="3600" number="1800" departLane="best"/>
+    <flow id="F_TV2_Bridge_Car"  type="passenger"  route="R_Q1_Bridge_to_CSG" begin="0" end="3600" number="700"  departLane="best"/>
+
+    <!-- Dòng xe dưới mặt đất đi thẳng ra Cầu Sài Gòn -->
+    <flow id="F_TV2_Gnd_Moto"    type="motorcycle" route="R_Q1_Ground_to_CSG" begin="0" end="3600" number="1200" departLane="best"/>
+    <flow id="F_TV2_Gnd_Car"     type="passenger"  route="R_Q1_Ground_to_CSG" begin="0" end="3600" number="350"  departLane="best"/>
+
+    <!-- Dòng xe rẽ phải sang Thị Nghè -->
+    <flow id="F_TV2_Right_Moto"  type="motorcycle" route="R_Q1_Turn_Right_TN" begin="0" end="3600" number="600" departLane="best"/>
+    <flow id="F_TV2_Right_Car"   type="passenger"  route="R_Q1_Turn_Right_TN" begin="0" end="3600" number="150" departLane="best"/>
+
+    <!-- Dòng xe rẽ trái sang Bến xe -->
+    <flow id="F_TV2_Left_Moto"   type="motorcycle" route="R_Q1_Turn_Left_BX"  begin="0" end="3600" number="500" departLane="best"/>
+    <flow id="F_TV2_Left_Bus"    type="bus"        route="R_Q1_Turn_Left_BX"  begin="0" end="3600" number="40"  departLane="best"/>
+</routes>

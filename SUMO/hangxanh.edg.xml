@@ -1,0 +1,32 @@
+<edges>
+    <!-- ==================== NHÁNH 1 & 2: TRỤC ĐIỆN BIÊN PHỦ ==================== -->
+    <!-- Đoạn từ Cầu Sài Gòn vào điểm tách cầu vượt -->
+    <edge id="E_DBP_CSG_in" from="J_DBP_CSG" to="J_RAMP_CSG" numLanes="4" speed="16.67"/>
+    <edge id="E_DBP_CSG_out" from="J_RAMP_CSG" to="J_DBP_CSG" numLanes="4" speed="16.67"/>
+
+    <!-- Đoạn CẦU VƯỢT THÉP (vượt qua ngã tư, không bị dừng đèn) -->
+    <!-- Chiều Cầu Sài Gòn -> Quận 1 -->
+    <edge id="E_BRIDGE_CSG_to_Q1" from="J_RAMP_CSG" to="J_RAMP_Q1" numLanes="2" speed="16.67"/>
+    <!-- Chiều Quận 1 -> Cầu Sài Gòn -->
+    <edge id="E_BRIDGE_Q1_to_CSG" from="J_RAMP_Q1" to="J_RAMP_CSG" numLanes="2" speed="16.67"/>
+
+    <!-- Đoạn MẶT ĐẤT phía Cầu Sài Gòn (vào ngã tư đèn đỏ J_CENTER) -->
+    <edge id="E_DBP_GND_CSG_in" from="J_RAMP_CSG" to="J_CENTER" numLanes="3" speed="11.11"/>
+    <edge id="E_DBP_GND_CSG_out" from="J_CENTER" to="J_RAMP_CSG" numLanes="3" speed="11.11"/>
+
+    <!-- Đoạn MẶT ĐẤT phía Quận 1 (vào ngã tư đèn đỏ J_CENTER) -->
+    <edge id="E_DBP_GND_Q1_in" from="J_RAMP_Q1" to="J_CENTER" numLanes="3" speed="11.11"/>
+    <edge id="E_DBP_GND_Q1_out" from="J_CENTER" to="J_RAMP_Q1" numLanes="3" speed="11.11"/>
+
+    <!-- Đoạn từ điểm hợp dòng cầu vượt về Quận 1 -->
+    <edge id="E_DBP_Q1_out" from="J_RAMP_Q1" to="J_DBP_Q1" numLanes="4" speed="16.67"/>
+    <edge id="E_DBP_Q1_in" from="J_DBP_Q1" to="J_RAMP_Q1" numLanes="4" speed="16.67"/>
+
+    <!-- ==================== NHÁNH 3: XÔ VIẾT NGHỆ TĨNH (PHÍA BẾN XE) ==================== -->
+    <edge id="E_XVNT_BX_in" from="J_XVNT_BX" to="J_CENTER" numLanes="3" speed="11.11"/>
+    <edge id="E_XVNT_BX_out" from="J_CENTER" to="J_XVNT_BX" numLanes="3" speed="11.11"/>
+
+    <!-- ==================== NHÁNH 4: XÔ VIẾT NGHỆ TĨNH (PHÍA THỊ NGHÈ) ==================== -->
+    <edge id="E_XVNT_TN_in" from="J_XVNT_TN" to="J_CENTER" numLanes="3" speed="11.11"/>
+    <edge id="E_XVNT_TN_out" from="J_CENTER" to="J_XVNT_TN" numLanes="3" speed="11.11"/>
+</edges>

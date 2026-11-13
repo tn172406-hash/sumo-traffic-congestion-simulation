@@ -1,0 +1,21 @@
+<nodes>
+    <!-- Nút giao trung tâm Hàng Xanh (dưới gầm cầu vượt) - có đèn tín hiệu giao thông (traffic_light) -->
+    <node id="J_CENTER" x="0.0" y="0.0" type="traffic_light" tl="TL_HANGXANH"/>
+
+    <!-- Các điểm mút ngoài của 4 nhánh -->
+    <!-- Nhánh 1: Điện Biên Phủ (Hướng Cầu Sài Gòn / Đông Bắc) -->
+    <node id="J_DBP_CSG" x="350.0" y="100.0" type="priority"/>
+    <!-- Điểm lên/xuống cầu vượt phía Cầu Sài Gòn -->
+    <node id="J_RAMP_CSG" x="150.0" y="43.0" type="priority"/>
+
+    <!-- Nhánh 2: Điện Biên Phủ (Hướng Quận 1 / Tây Nam) -->
+    <node id="J_DBP_Q1" x="-350.0" y="-100.0" type="priority"/>
+    <!-- Điểm lên/xuống cầu vượt phía Quận 1 -->
+    <node id="J_RAMP_Q1" x="-150.0" y="-43.0" type="priority"/>
+
+    <!-- Nhánh 3: Xô Viết Nghệ Tĩnh (Hướng Bến xe Miền Đông / Bắc Tây Bắc) -->
+    <node id="J_XVNT_BX" x="-100.0" y="300.0" type="priority"/>
+
+    <!-- Nhánh 4: Xô Viết Nghệ Tĩnh (Hướng Thị Nghè / Nam Đông Nam) -->
+    <node id="J_XVNT_TN" x="100.0" y="-300.0" type="priority"/>
+</nodes>

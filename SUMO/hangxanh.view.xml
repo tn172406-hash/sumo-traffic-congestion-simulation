@@ -1,0 +1,9 @@
+<viewsettings>
+    <scheme name="real world">
+        <viewport zoom="1200" x="1270" y="700"/>
+        <delay value="30"/>
+        <!-- Hiển thị phương tiện rõ nét 2D/3D -->
+        <vehicles vehicleMode="9" vehicleQuality="2" vehicleSize="1.5"/>
+        <junctions drawLinkTLIndex="true"/>
+    </scheme>
+</viewsettings>

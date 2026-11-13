@@ -1,0 +1,54 @@
+<additional>
+    <!-- ======================================================== -->
+    <!-- CÂY XANH DỌC CÁC TUYẾN ĐƯỜNG (DÃY CÂY XANH PHÂN CÁCH)     -->
+    <!-- ======================================================== -->
+    <!-- Cây xanh dải phân cách Điện Biên Phủ (Bắc) -->
+    <poly id="tree_row_dbp_north" type="forest" color="34,139,34" fill="true" layer="-1"
+          shape="150,55 350,112 350,118 150,61"/>
+    <!-- Cây xanh dải phân cách Điện Biên Phủ (Nam) -->
+    <poly id="tree_row_dbp_south" type="forest" color="34,139,34" fill="true" layer="-1"
+          shape="-150,-55 -350,-112 -350,-118 -150,-61"/>
+    
+    <!-- Cây xanh công viên nhỏ góc Tây-Bắc ngã tư Hàng Xanh -->
+    <poly id="park_north_west" type="park" color="46,139,87" fill="true" layer="-2"
+          shape="-20,40 -120,40 -140,160 -40,160"/>
+    <poi id="tree_poi_1" type="tree" color="0,100,0" layer="1" x="-50" y="60"/>
+    <poi id="tree_poi_2" type="tree" color="0,100,0" layer="1" x="-80" y="80"/>
+    <poi id="tree_poi_3" type="tree" color="0,100,0" layer="1" x="-100" y="110"/>
+    <poi id="tree_poi_4" type="tree" color="0,100,0" layer="1" x="-60" y="130"/>
+
+    <!-- Cây xanh công viên nhỏ góc Đông-Nam ngã tư Hàng Xanh -->
+    <poly id="park_south_east" type="park" color="46,139,87" fill="true" layer="-2"
+          shape="20,-40 120,-40 140,-160 40,-160"/>
+    <poi id="tree_poi_5" type="tree" color="0,100,0" layer="1" x="50" y="-60"/>
+    <poi id="tree_poi_6" type="tree" color="0,100,0" layer="1" x="80" y="-80"/>
+    <poi id="tree_poi_7" type="tree" color="0,100,0" layer="1" x="100" y="-110"/>
+
+    <!-- ======================================================== -->
+    <!-- CÁC KHỐI NHÀ DÂN & TÒA NHÀ XUNG QUANH NÚT GIAO HÀNG XANH -->
+    <!-- ======================================================== -->
+    
+    <!-- Tòa nhà văn phòng / Siêu thị góc Đông - Bắc (Góc XVNT đi Bến xe & ĐBP ra Cầu Sài Gòn) -->
+    <poly id="bldg_mall_northeast" type="building" color="176,196,222" fill="true" layer="-1"
+          shape="40,50 140,78 130,160 30,130"/>
+    <poly id="bldg_commercial_1" type="building" color="188,143,143" fill="true" layer="-1"
+          shape="150,85 240,110 230,160 145,140"/>
+    <poly id="bldg_commercial_2" type="building" color="210,180,140" fill="true" layer="-1"
+          shape="250,115 340,140 330,190 245,170"/>
+
+    <!-- Dãy nhà phố góc Tây - Nam (Góc XVNT đi Thị Nghè & ĐBP vào Quận 1) -->
+    <poly id="bldg_residential_block1" type="building" color="211,211,211" fill="true" layer="-1"
+          shape="-40,-50 -140,-78 -130,-160 -30,-130"/>
+    <poly id="bldg_residential_block2" type="building" color="205,133,63" fill="true" layer="-1"
+          shape="-150,-85 -240,-110 -230,-160 -145,-140"/>
+    <poly id="bldg_residential_block3" type="building" color="169,169,169" fill="true" layer="-1"
+          shape="-250,-115 -340,-140 -330,-190 -245,-170"/>
+
+    <!-- Trường đại học / Tòa nhà cao tầng góc Tây - Bắc -->
+    <poly id="bldg_university_campus" type="building" color="100,149,237" fill="true" layer="-1"
+          shape="-50,170 -160,170 -170,260 -60,260"/>
+          
+    <!-- Khu dân cư dọc Xô Viết Nghệ Tĩnh góc Đông - Nam -->
+    <poly id="bldg_block_southeast" type="building" color="222,184,135" fill="true" layer="-1"
+          shape="50,-170 160,-170 170,-260 60,-260"/>
+</additional>

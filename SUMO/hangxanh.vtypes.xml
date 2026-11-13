@@ -1,29 +1,29 @@
 <additional>
-    <!-- ========================================== -->
-    <!-- ĐỊNH NGHĨA HÌNH DÁNG XE TRỰC QUAN (GUI SHAPES) -->
-    <!-- ========================================== -->
+    <!-- ============================================================== -->
+    <!-- ĐỊNH NGHĨA PHƯƠNG TIỆN CHUẨN GIAO THÔNG VIỆT NAM (DÀY ĐẶC & MƯỢT MÀ) -->
+    <!-- ============================================================== -->
     
-    <!-- 1. Xe máy: shape="motorcycle", màu vàng cam nổi bật -->
+    <!-- 1. Xe máy: minGap 0.3m, gia tốc cao 3.2 m/s2, màu vàng cam nổi bật -->
     <vType id="motorcycle" vClass="motorcycle" guiShape="motorcycle"
            length="1.9" width="0.8" 
-           maxSpeed="13.89" accel="2.6" decel="4.5" sigma="0.5" 
-           minGap="0.5" color="255,180,0"/>
+           maxSpeed="13.89" accel="3.2" decel="5.0" sigma="0.3" 
+           minGap="0.3" color="255,180,0"/>
 
-    <!-- 2. Ô tô con: shape="passenger", màu xanh dương -->
+    <!-- 2. Ô tô con: minGap 0.8m, gia tốc 2.5 m/s2, màu xanh dương -->
     <vType id="passenger" vClass="passenger" guiShape="passenger"
            length="4.5" width="1.8" 
-           maxSpeed="16.67" accel="2.0" decel="4.5" sigma="0.5" 
-           minGap="1.5" color="30,144,255"/>
+           maxSpeed="16.67" accel="2.5" decel="4.5" sigma="0.3" 
+           minGap="0.8" color="30,144,255"/>
 
-    <!-- 3. Xe buýt công cộng: shape="bus", màu đỏ -->
+    <!-- 3. Xe buýt công cộng: minGap 1.2m, màu đỏ -->
     <vType id="bus" vClass="bus" guiShape="bus"
            length="10.5" width="2.5" 
-           maxSpeed="11.11" accel="1.2" decel="3.5" sigma="0.5" 
-           minGap="2.0" color="220,20,60"/>
+           maxSpeed="12.0" accel="1.8" decel="3.5" sigma="0.3" 
+           minGap="1.2" color="220,20,60"/>
 
-    <!-- 4. Xe tải giao hàng: shape="truck", màu tím -->
+    <!-- 4. Xe tải giao hàng: minGap 1.2m, màu tím -->
     <vType id="truck" vClass="truck" guiShape="truck"
            length="7.5" width="2.2" 
-           maxSpeed="13.89" accel="1.5" decel="3.5" sigma="0.5" 
-           minGap="2.0" color="148,0,211"/>
+           maxSpeed="13.89" accel="2.0" decel="3.5" sigma="0.3" 
+           minGap="1.2" color="148,0,211"/>
 </additional>

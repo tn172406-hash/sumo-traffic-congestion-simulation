@@ -17,6 +17,5 @@ $RECYCLE.BIN/
 .idea/
 
 # Large SUMO output XMLs (>100MB)
-*.queue.xml
-output_real/*.queue.xml
-archive_du_phong/**/*.queue.xml
+*queue.xml
+**/*queue.xml

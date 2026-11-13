@@ -65,19 +65,18 @@ git push origin <TEN_NHANH_CUA_BAN>
 
 ## 🚦 HƯỚNG DẪN CHẠY MÔ PHỎNG SUMO VÀ XUẤT SỐ LIỆU
 
-Nhóm trưởng đã cài đặt sẵn hệ thống chạy tự động trong thư mục `SUMO/`:
+Nhóm trưởng đã cài đặt sẵn hệ thống chạy tự động cho **CẢ 2 HỆ THỐNG BẢN ĐỒ** trong thư mục `SUMO/`:
 
-1. **Quan sát trực quan giao diện 2D/3D (SUMO-GUI):**
-   - Nhấp đúp chuột vào `SUMO/XEM_KICHBAN_1_THAP.bat`: Xem kịch bản Thấp điểm (50%).
-   - Nhấp đúp chuột vào `SUMO/XEM_KICHBAN_2_TRUNGBINH.bat`: Xem kịch bản Trung bình (100%).
-   - Nhấp đúp chuột vào `SUMO/XEM_KICHBAN_3_CAODIEM.bat`: Xem kịch bản Cao điểm (175% - ùn tắc nặng).
+### 1. Hệ thống Bản đồ Thực tế (OpenStreetMap có nhà cửa HUTECH, cây xanh, cầu vượt thật):
+* **Xem trực quan 3 kịch bản trên SUMO-GUI:**
+  - Nhấp đúp chuột vào `SUMO/XEM_THAT_KB1_THAP.bat`: Xem bản đồ thật kịch bản Thấp điểm (50%).
+  - Nhấp đúp chuột vào `SUMO/XEM_THAT_KB2_TRUNGBINH.bat`: Xem bản đồ thật kịch bản Trung bình (100%).
+  - Nhấp đúp chuột vào `SUMO/XEM_THAT_KB3_CAODIEM.bat`: Xem bản đồ thật kịch bản Cao điểm (175% - ùn tắc thực tế).
+* **Chạy ngầm xuất số liệu bản đồ thật:** Nhấp đúp vào `SUMO/CHAY_THAT_3_KICH_BAN.bat`.
 
-2. **Chạy ngầm toàn bộ và tự động xuất biểu đồ:**
-   - Nhấp đúp chuột vào `SUMO/CHAY_TAT_CA_KICH_BAN.bat`.
-   - Kết quả sẽ tự động lưu tại:
-     * Bảng số liệu Excel: `SUMO/Bao_Cao_Tong_Hop_3_Kich_Ban.csv`
-     * Biểu đồ thời gian chờ: `SUMO/bieu_do_1_thoi_gian_cho.png`
-     * Biểu đồ vận tốc & ùn tắc: `SUMO/bieu_do_2_van_toc_va_un_tac.png`
+### 2. Hệ thống Bản đồ Phân luồng Chuẩn hóa (Dùng để kiểm soát 4 nhánh của 4 thành viên):
+* **Xem trực quan 3 kịch bản:** Mở `XEM_KICHBAN_1_THAP.bat`, `XEM_KICHBAN_2_TRUNGBINH.bat`, `XEM_KICHBAN_3_CAODIEM.bat`.
+* **Chạy tự động và xuất biểu đồ:** Mở `SUMO/CHAY_TAT_CA_KICH_BAN.bat` (Kết quả lưu tại `Bao_Cao_Tong_Hop_3_Kich_Ban.csv` và 2 ảnh biểu đồ PNG).
 
 ---
 

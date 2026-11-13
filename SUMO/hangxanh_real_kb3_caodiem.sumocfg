@@ -1,0 +1,35 @@
+<configuration>
+    <!-- ============================================================== -->
+    <!-- BẢN ĐỒ THỰC TẾ (OSM) - KỊCH BẢN 3: MỨC CAO (CAO ĐIỂM 175%)     -->
+    <!-- ============================================================== -->
+    <input>
+        <net-file value="hangxanh_real.net.xml"/>
+        <route-files value="hangxanh_real.rou.xml"/>
+        <additional-files value="hangxanh.vtypes.xml,hangxanh_buildings.poly.xml"/>
+    </input>
+
+    <!-- Hệ số điều chỉnh nhu cầu lưu lượng: 1.75 (tăng 75% ùn tắc) -->
+    <scale value="1.75"/>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <processing>
+        <lateral-resolution value="0.8"/>
+        <time-to-teleport value="300"/>
+    </processing>
+
+    <output>
+        <tripinfo-output value="output_real/real_kb3_tripinfo.xml"/>
+        <summary-output value="output_real/real_kb3_summary.xml"/>
+        <queue-output value="output_real/real_kb3_queue.xml"/>
+    </output>
+
+    <gui_only>
+        <gui-settings-file value="hangxanh.view.xml"/>
+        <start value="true"/>
+    </gui_only>
+</configuration>

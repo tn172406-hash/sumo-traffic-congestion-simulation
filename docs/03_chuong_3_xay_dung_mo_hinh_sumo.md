@@ -35,8 +35,6 @@ Các công việc thực hiện:
 
 Sau khi chỉnh sửa, sử dụng NETCONVERT để tạo lại tệp mạng lưới hoàn chỉnh và kiểm tra trực quan trên SUMO-GUI.
 
-Mục tiêu của bước này là bảo đảm mạng lưới phản ánh tương đối chính xác cấu trúc giao thông thực tế tại khu vực nghiên cứu.
-
 ## 3.2. Cài đặt thông số phương tiện và tín hiệu điều khiển
 
 ### 3.2.1. Khai báo thuộc tính các loại phương tiện (vType) và lộ trình (routes)
